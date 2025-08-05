@@ -1,0 +1,29 @@
+{
+  "name": "jose/mvc_based",
+  "description": "Projeto base MVC",
+  "type": "project",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "app\\": "app/",
+      "core\\": "core/"
+    }
+  },
+  "authors": [
+    {
+      "name": "José Rocha",
+      "email": "josemarlerocha@hotmail.com"
+    }
+  ],
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.85",
+    "phpstan/phpstan": "^2.1",
+    "symfony/var-dumper": "^7.3"
+  },
+  "scripts": {
+    "server": "php -S localhost:8001 -t public/"
+  },
+  "config": {
+    "process-timeout": 0
+  }
+}
