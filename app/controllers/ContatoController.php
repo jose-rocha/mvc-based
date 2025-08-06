@@ -2,26 +2,19 @@
 
 namespace app\controllers;
 
-class ContatoController
+use app\classes\View;
+
+class ContatoController extends View
 {
     public function show()
     {
-        // Retorna a view contato.php
-        return $this->view('contato');
-    }
+        // Dados para passar para a view
+        $data = [
+            'title' => 'Contato - MVC App',
+            'currentPage' => 'contact'
+        ];
 
-    private function view($viewName, $data = [])
-    {
-        // Extrai as variáveis para ficarem disponíveis na view
-        extract($data);
-
-        // Inclui a view
-        $viewPath = __DIR__ . '/../../resources/views/' . $viewName . '.php';
-
-        if (file_exists($viewPath)) {
-            require $viewPath;
-        } else {
-            throw new \Exception("View {$viewName} não encontrada");
-        }
+        // Retorna a view contato.php usando o layout app
+        return $this->view('contato', $data);
     }
 }

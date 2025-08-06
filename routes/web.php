@@ -1,5 +1,6 @@
 <?php
 
+use app\classes\ErrorHandler;
 use app\controllers\AboutController;
 use app\controllers\ContatoController;
 use app\controllers\HomeController;
@@ -56,8 +57,7 @@ foreach ($routes as $route) {
     }
 }
 
-// Se não encontrou a rota, lança exceção
+// Se não encontrou a rota, mostra página 404
 if ($routeFound === null) {
-    // echo 'Rota não encontarda';
-    throw new \Exception("Rota {$currentRequest} {$currentUri} não existe");
+    ErrorHandler::handle404($currentRequest, $currentUri);
 }
